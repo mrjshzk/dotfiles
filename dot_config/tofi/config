@@ -1,0 +1,28 @@
+font = "monospace"
+font-size = 14
+width = 50%
+height = 45%
+prompt-text = ""
+placeholder-text = "Search..."
+result-spacing = 8
+num-results = 16
+horizontal = false
+
+background-color = #111111
+text-color = #eeeeee
+prompt-color = #eeeeee
+placeholder-color = #777777
+input-color = #eeeeee
+selection-color = #eeee11
+border-color = #eeeeee
+border-width = 0
+corner-radius = 0
+
+padding-top = 14
+padding-bottom = 14
+padding-left = 18
+padding-right = 18
+
+hide-cursor = true
+require-match = false
+terminal = "ghostty"

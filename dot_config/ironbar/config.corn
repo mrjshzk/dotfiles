@@ -1,0 +1,30 @@
+let {
+    $workspaces = { type = "workspaces" }
+
+    $focused = { type = "focused" icon_size = 24 }
+
+    $battery = { type = "battery" show_if = "ls /sys/class/power_supply/ | grep --quiet '^BAT'" }
+    $sys_info = { type = "sys_info" format = ["{cpu_percent}% " "{memory_percent}% "] interval.cpu = 1 }
+    $tray = { type = "tray" }
+    $clock = { type = "clock" } 
+    $volume = { type = "volume" format = "{icon} {percentage}%" max_volume = 100}
+    $bluetooth = { type = "bluetooth" }
+    $notifications = { type = "notifications" }
+    $brightness = { type = "brightness" format = "{percentage}%" show_if = "ls /sys/class/backlight/"}
+    $bar = [
+    {
+        name = "topbar"
+        position = "top"
+        height = 30
+        start = [ $workspaces $focused ]
+        center = [ $clock $tray ]
+        end = [ $brightness $volume $bluetooth $battery $sys_info $notifications ]
+        layer = "top"
+        exclusive_zone = true
+    }
+]
+} in {
+    monitors.HDMI-A-1 = $bar 
+    monitors.DP-3 = $bar
+    monitors.eDP-1 0 $bar
+}
